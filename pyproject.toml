@@ -1,0 +1,15 @@
+[project]
+name = "ComfyUI-crop-alpha"
+description = "Automatic cropping of transparent areas to prevent images from being too large, while also supporting resizing to prevent image dimensions from being too large."
+version = "1.0.0"
+license = { text = "MIT" }
+dependencies = [
+]
+
+[project.urls]
+Repository = "https://github.com/dzqdzq/ComfyUI-crop-alpha"
+
+[tool.comfy]
+PublisherId = "dzqdzq"
+DisplayName = "ComfyUI-crop-alpha"
+Icon = "🐵"
