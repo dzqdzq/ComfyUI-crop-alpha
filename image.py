@@ -126,18 +126,15 @@ class ShrinkImage:
 
         output_images = []
         for img in image:
+            print('img.shape=', img.shape)
             img = to_pil_image(img.permute(2, 0, 1))
             scale = self.calculate_scale(img, mode, scale, width, height)
             resized_img = self.shrink_image_with_scale(img, scale, algorithm)
             resized_img_np = np.array(resized_img).astype(np.float32) / 255.0
-            resized_img_np = torch.from_numpy(resized_img_np)[None,]
+            resized_img_np = torch.from_numpy(resized_img_np)
             output_images.append(resized_img_np)
 
-        if len(output_images) > 1:
-            output_image = torch.cat(output_images, dim=0)
-        else:
-            output_image = output_images[0]
-        return (output_image,)
+        return (output_images,)
 
 # 注册节点
 NODE_CLASS_MAPPINGS = {
